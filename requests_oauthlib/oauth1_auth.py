@@ -36,6 +36,7 @@ class OAuth1(object):
             decoding='utf-8',
             client_class=None,
             force_include_body=False,
+            oauth_version='1.0a',
             **kwargs):
 
         try:
@@ -49,7 +50,7 @@ class OAuth1(object):
 
         self.client = client_class(client_key, client_secret, resource_owner_key,
             resource_owner_secret, callback_uri, signature_method,
-            signature_type, rsa_key, verifier, decoding=decoding, **kwargs)
+            signature_type, rsa_key, verifier, decoding=decoding, oauth_version=oauth_version, **kwargs)
 
     def __call__(self, r):
         """Add OAuth parameters to the request.
